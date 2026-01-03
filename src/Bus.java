@@ -1,15 +1,25 @@
-public class Main {
-    public static void main(String[] args) {
+public class Bus extends Vehicle {
 
-        Vehicle car = new Car("Toyota Camry", 2018, 20000, 4);
-        Vehicle bus = new Bus("Mercedes Bus", 2015, 50000, 50);
+    private int passengerCapacity;
 
-        System.out.println(car);
-        System.out.println("Insurance fee: " + car.calculateInsuranceFee());
+    public Bus(String model, int year, double basePrice, int passengerCapacity) {
+        super(model, year, basePrice);
+        this.passengerCapacity = passengerCapacity;
+    }
 
-        System.out.println();
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
 
-        System.out.println(bus);
-        System.out.println("Insurance fee: " + bus.calculateInsuranceFee());
+    @Override
+    public double calculateInsuranceFee() {
+        int age = getAge(2025);
+        return basePrice * 0.08 + passengerCapacity * 10 + age * 150;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", capacity=" + passengerCapacity;
     }
 }
