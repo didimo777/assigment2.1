@@ -1,21 +1,16 @@
 {
 
-    // ===== Fields =====
     protected int id;
     protected static int idGen = 1;
     protected String model;
     protected int year;
     protected double basePrice;
-
-    // ===== Constructor =====
     public Vehicle(String model, int year, double basePrice) {
         this.id = idGen++;
         setModel(model);
         setYear(year);
         setBasePrice(basePrice);
     }
-
-    // ===== Getters =====
     public int getId() {
         return id;
     }
